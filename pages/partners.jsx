@@ -1,7 +1,19 @@
-import CustomerListView from '../components/CustomerListView'
+import PartnerListView from '../components/PartnerListView'
+import { PrismaClient } from '@prisma/client'
 
-export default function partners() {
+const prisma = new PrismaClient()
+
+export const getStaticProps = async () => {
+  const partners = await prisma.partner.findMany()
+  return  {
+    props: {
+      partners
+    }
+  }
+}
+
+export default function partners({ partners }) {
   return (
-    <CustomerListView />
+    <PartnerListView partners={partners} />
   )
 }

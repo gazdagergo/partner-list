@@ -6,7 +6,6 @@ import {
 } from '@material-ui/core';
 import Results from './Results';
 import Toolbar from './Toolbar';
-import data from './data';
 import Page from '../Page';
 
 const useStyles = makeStyles((theme) => ({
@@ -18,9 +17,8 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
-const CustomerListView = () => {
+const PartnerListView = ({ partners }) => {
   const classes = useStyles();
-  const [partners] = useState(data);
 
   return (
     <Page
@@ -37,4 +35,4 @@ const CustomerListView = () => {
   )
 }
 
-export default CustomerListView;
+export default PartnerListView;
