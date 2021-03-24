@@ -66,12 +66,12 @@ const Results = ({ className, partners, ...rest }) => {
                     </Box>
                   </TableCell>
                   <TableCell>{partner.companyForm?.name}</TableCell>
-                  <TableCell>{partner.tax_number}</TableCell>
-                  <TableCell>{partner.registration_number}</TableCell>
+                  <TableCell>{partner.taxNumber}</TableCell>
+                  <TableCell>{partner.registrationNumber}</TableCell>
                   <TableCell>{partner.settlement?.name}</TableCell>
                   <TableCell>{partner.address}</TableCell>
                   <TableCell>{partner.phone}</TableCell>
-                  <TableCell>{partner.account_number}</TableCell>
+                  <TableCell>{partner.accountNumber}</TableCell>
                   <TableCell>{partner.note}</TableCell>
                 </TableRow>
               ))}

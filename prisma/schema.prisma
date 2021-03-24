@@ -17,22 +17,22 @@ model Settlement {
 }
 
 model CompanyForm {
-  id  Int @id @default(autoincrement())
-  name String
+  id      Int       @id @default(autoincrement())
+  name    String
   Partner Partner[]
 }
 
 model Partner {
-  id                  Int        @id @default(autoincrement())
-  name                String
-  companyForm         CompanyForm @relation(fields: [companyFormId], references: [id])
-  companyFormId       Int @default(1)
-  tax_number          String
-  registration_number String
-  settlement          Settlement @relation(fields: [settlementId], references: [id])
-  settlementId        Int        @default(1)
-  address             String
-  phone               String
-  account_number      String
-  note                String
+  id                 Int         @id @default(autoincrement())
+  name               String
+  companyForm        CompanyForm @relation(fields: [companyFormId], references: [id])
+  companyFormId      Int         @default(1)
+  taxNumber          String
+  registrationNumber String
+  settlement         Settlement  @relation(fields: [settlementId], references: [id])
+  settlementId       Int         @default(1)
+  address            String
+  phone              String
+  accountNumber      String
+  note               String
 }
