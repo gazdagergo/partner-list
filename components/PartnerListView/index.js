@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {
   Box,
   Container,
@@ -7,6 +7,7 @@ import {
 import Results from './Results';
 import Toolbar from './Toolbar';
 import Page from '../Page';
+import axios from 'axios'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -17,8 +18,9 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
+
 const PartnerListView = ({ partners }) => {
-  const classes = useStyles();
+  const classes = useStyles()
 
   return (
     <Page

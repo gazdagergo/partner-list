@@ -1,19 +1,16 @@
 import PartnerListView from '../components/PartnerListView'
-import { PrismaClient } from '@prisma/client'
+import { useContext, useEffect } from 'react'
+import usePartner from '../hooks/usePartner'
+import { AppContext } from './_app'
 
-const prisma = new PrismaClient()
+export default function partners() {
 
-export const getStaticProps = async () => {
-  const partners = await prisma.partner.findMany()
-  return  {
-    props: {
-      partners
-    }
-  }
-}
+  const { fetchPartners } = usePartner()
+  const { state } = useContext(AppContext)
 
-export default function partners({ partners }) {
+  useEffect(fetchPartners, [])
+
   return (
-    <PartnerListView partners={partners} />
+    <PartnerListView partners={state.partners} />
   )
 }

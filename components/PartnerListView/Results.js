@@ -50,7 +50,7 @@ const Results = ({ className, partners, ...rest }) => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {partners.map((customer) => (
+              {partners?.map((customer) => (
                 <TableRow
                   hover
                   key={customer.id}
