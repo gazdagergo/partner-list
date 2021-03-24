@@ -7,6 +7,7 @@ export default async (req, res) => {
     const partners = await prisma.partner.findMany({
       include: {
         settlement: true,
+        companyForm: true,
       },
     })  
     res.status(200).json(partners)

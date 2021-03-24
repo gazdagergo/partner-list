@@ -16,10 +16,17 @@ model Settlement {
   Partner Partner[]
 }
 
+model CompanyForm {
+  id  Int @id @default(autoincrement())
+  name String
+  Partner Partner[]
+}
+
 model Partner {
   id                  Int        @id @default(autoincrement())
   name                String
-  company_form        String
+  companyForm         CompanyForm @relation(fields: [companyFormId], references: [id])
+  companyFormId       Int @default(1)
   tax_number          String
   registration_number String
   settlement          Settlement @relation(fields: [settlementId], references: [id])

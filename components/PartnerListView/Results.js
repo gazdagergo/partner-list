@@ -65,7 +65,7 @@ const Results = ({ className, partners, ...rest }) => {
                       </Typography>
                     </Box>
                   </TableCell>
-                  <TableCell>{partner.company_form}</TableCell>
+                  <TableCell>{partner.companyForm?.name}</TableCell>
                   <TableCell>{partner.tax_number}</TableCell>
                   <TableCell>{partner.registration_number}</TableCell>
                   <TableCell>{partner.settlement?.name}</TableCell>
