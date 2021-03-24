@@ -47,10 +47,10 @@ const Results = ({ className, partners, ...rest }) => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {partners?.map((customer) => (
+              {partners?.map(partner => (
                 <TableRow
                   hover
-                  key={customer.id}
+                  key={partner.id}
                 >
                   <TableCell>
                     <Box
@@ -61,18 +61,18 @@ const Results = ({ className, partners, ...rest }) => {
                         color="textPrimary"
                         variant="body1"
                       >
-                        {customer.name}
+                        {partner.name}
                       </Typography>
                     </Box>
                   </TableCell>
-                  <TableCell>{customer.company_form}</TableCell>
-                  <TableCell>{customer.tax_number}</TableCell>
-                  <TableCell>{customer.registration_number}</TableCell>
-                  <TableCell>{customer.settlement}</TableCell>
-                  <TableCell>{customer.address}</TableCell>
-                  <TableCell>{customer.phone}</TableCell>
-                  <TableCell>{customer.account_number}</TableCell>
-                  <TableCell>{customer.note}</TableCell>
+                  <TableCell>{partner.company_form}</TableCell>
+                  <TableCell>{partner.tax_number}</TableCell>
+                  <TableCell>{partner.registration_number}</TableCell>
+                  <TableCell>{partner.settlement?.name}</TableCell>
+                  <TableCell>{partner.address}</TableCell>
+                  <TableCell>{partner.phone}</TableCell>
+                  <TableCell>{partner.account_number}</TableCell>
+                  <TableCell>{partner.note}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
