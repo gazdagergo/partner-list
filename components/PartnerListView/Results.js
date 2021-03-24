@@ -35,18 +35,15 @@ const Results = ({ className, partners, ...rest }) => {
           <Table>
             <TableHead>
               <TableRow>
-                <TableCell>
-                  Cégnév
-                </TableCell>
-                <TableCell>
-                  Cégforma
-                </TableCell>
-                <TableCell>
-                  Adószám
-                </TableCell>
-                <TableCell>
-                  Cégjegyzékszám
-                </TableCell>
+                <TableCell>Cégnév</TableCell>
+                <TableCell>Cégforma</TableCell>
+                <TableCell>Adószám</TableCell>
+                <TableCell>Cégjegyzékszám</TableCell>
+                <TableCell>Település</TableCell>
+                <TableCell>Cím</TableCell>
+                <TableCell>Telefon</TableCell>
+                <TableCell>Bankszámlaszám</TableCell>
+                <TableCell>Megjegyzés</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
@@ -68,15 +65,14 @@ const Results = ({ className, partners, ...rest }) => {
                       </Typography>
                     </Box>
                   </TableCell>
-                  <TableCell>
-                    {customer.company_form}
-                  </TableCell>
-                  <TableCell>
-                    {customer.tax_number}                  
-                  </TableCell>
-                  <TableCell>
-                    {customer.registration_number}
-                  </TableCell>
+                  <TableCell>{customer.company_form}</TableCell>
+                  <TableCell>{customer.tax_number}</TableCell>
+                  <TableCell>{customer.registration_number}</TableCell>
+                  <TableCell>{customer.settlement}</TableCell>
+                  <TableCell>{customer.address}</TableCell>
+                  <TableCell>{customer.phone}</TableCell>
+                  <TableCell>{customer.account_number}</TableCell>
+                  <TableCell>{customer.note}</TableCell>
                 </TableRow>
               ))}
             </TableBody>
