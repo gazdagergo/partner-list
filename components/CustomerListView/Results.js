@@ -11,7 +11,6 @@ import {
   TableBody,
   TableCell,
   TableHead,
-  TablePagination,
   TableRow,
   Typography,
   makeStyles
@@ -27,8 +26,6 @@ const useStyles = makeStyles((theme) => ({
 const Results = ({ className, partners, ...rest }) => {
   const classes = useStyles();
   const [selectedCustomerIds, setSelectedCustomerIds] = useState([]);
-  const [limit, setLimit] = useState(10);
-  const [page, setPage] = useState(0);
 
   const handleSelectAll = (event) => {
     let newSelectedCustomerIds;
@@ -60,14 +57,6 @@ const Results = ({ className, partners, ...rest }) => {
     }
 
     setSelectedCustomerIds(newSelectedCustomerIds);
-  };
-
-  const handleLimitChange = (event) => {
-    setLimit(event.target.value);
-  };
-
-  const handlePageChange = (event, newPage) => {
-    setPage(newPage);
   };
 
   return (
@@ -106,7 +95,7 @@ const Results = ({ className, partners, ...rest }) => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {partners.slice(0, limit).map((customer) => (
+              {partners.map((customer) => (
                 <TableRow
                   hover
                   key={customer.id}
@@ -151,15 +140,6 @@ const Results = ({ className, partners, ...rest }) => {
           </Table>
         </Box>
       </PerfectScrollbar>
-      <TablePagination
-        component="div"
-        count={partners.length}
-        onChangePage={handlePageChange}
-        onChangeRowsPerPage={handleLimitChange}
-        page={page}
-        rowsPerPage={limit}
-        rowsPerPageOptions={[5, 10, 25]}
-      />
     </Card>
   );
 };
