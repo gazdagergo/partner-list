@@ -1,7 +1,7 @@
-import React from 'react';
-import clsx from 'clsx';
-import PropTypes from 'prop-types';
-import PerfectScrollbar from 'react-perfect-scrollbar';
+import React, { useState } from 'react'
+import clsx from 'clsx'
+import PropTypes from 'prop-types'
+import PerfectScrollbar from 'react-perfect-scrollbar'
 import {
   Box,
   Card,
@@ -10,9 +10,10 @@ import {
   TableCell,
   TableHead,
   TableRow,
-  Typography,
   makeStyles
-} from '@material-ui/core';
+} from '@material-ui/core'
+import ResultRow from './ResultRow'
+import usePartner from '../../hooks/usePartner'
 
 const useStyles = makeStyles((theme) => ({
   root: {},
@@ -24,6 +25,7 @@ const useStyles = makeStyles((theme) => ({
 const Results = ({ className, partners, ...rest }) => {
   const classes = useStyles();
 
+  const { removePartner } = usePartner()
 
   return (
     <Card
@@ -44,36 +46,17 @@ const Results = ({ className, partners, ...rest }) => {
                 <TableCell>Telefon</TableCell>
                 <TableCell>Bankszámlaszám</TableCell>
                 <TableCell>Megjegyzés</TableCell>
+                <TableCell />
               </TableRow>
             </TableHead>
             <TableBody>
-              {partners?.map(partner => (
-                <TableRow
-                  hover
-                  key={partner.id}
-                >
-                  <TableCell>
-                    <Box
-                      alignItems="center"
-                      display="flex"
-                    >
-                      <Typography
-                        color="textPrimary"
-                        variant="body1"
-                      >
-                        {partner.name}
-                      </Typography>
-                    </Box>
-                  </TableCell>
-                  <TableCell>{partner.companyForm?.name}</TableCell>
-                  <TableCell>{partner.taxNumber}</TableCell>
-                  <TableCell>{partner.registrationNumber}</TableCell>
-                  <TableCell>{partner.settlement?.name}</TableCell>
-                  <TableCell>{partner.address}</TableCell>
-                  <TableCell>{partner.phone}</TableCell>
-                  <TableCell>{partner.accountNumber}</TableCell>
-                  <TableCell>{partner.note}</TableCell>
-                </TableRow>
+              {partners?.map(({ id, ...rest }) => (
+                <ResultRow
+                  key={id}
+                  id={id}
+                  {...rest}
+                  onRemove={removePartner}
+                /> 
               ))}
             </TableBody>
           </Table>
