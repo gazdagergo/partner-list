@@ -17,7 +17,7 @@ yarn
 npm i
 ```
 
-To initialize the database with placeholder data (if necessary) rendame
+To initialize the database with placeholder data (if necessary) rename
 `prisma/dev.db.example` to `prisma/dev.db`
 
 
